@@ -2,11 +2,14 @@ package com.niit.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
 
@@ -19,11 +22,19 @@ public class Blog {
 	private int blogid;
 	private String blogname;
 	private String blogcontent;
-	private String username;
+   @ManyToOne(fetch= FetchType.EAGER,cascade=CascadeType.ALL)
+	private User postby;
 	private String status;
 	private Date createdate;
+	private int likes;
 	
 	
+	public int getLikes() {
+		return likes;
+	}
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
 	public int getBlogid() {
 		return blogid;
 	}
@@ -42,11 +53,12 @@ public class Blog {
 	public void setBlogcontent(String blogcontent) {
 		this.blogcontent = blogcontent;
 	}
-	public String getUsername() {
-		return username;
+	
+	public User getPostby() {
+		return postby;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setPostby(User postby) {
+		this.postby = postby;
 	}
 	public String getStatus() {
 		return status;

@@ -27,9 +27,16 @@ public class UserTestCase {
 		user= (User) context.getBean("user");
 	}
 	@Test
+	public void test() {
+		System.out.println("<----------config tested---------->");}
+	
+	
+	@Test
 	public void addUserTest() {
 		user.setUsername("karthik");
 		user.setPhone("0065456203");
+		user.setRole("ROLE_USER");
+		user.setStatus("online");
 		user.setEmail("karthikponniah@gmail.com");
 		user.setAddress("singapore");
 		user.setPassword("abc");

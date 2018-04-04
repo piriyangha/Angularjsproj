@@ -11,6 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.niit.dao.BlogDao;
 import com.niit.model.Blog;
+import com.niit.model.User;
 
 public class BlogDaoTest {
 	private static AnnotationConfigApplicationContext context;
@@ -29,15 +30,18 @@ public class BlogDaoTest {
 
 	@Test
 	public void addBlogTest() {
-		
-		blog.setBlogname("ishaan");
-		blog.setBlogcontent("abcd");
-		Date date = new Date(02 / 02 / 18);
-		blog.setCreatedate(date);
-		blog.setStatus("available");
+		User user=new User();
+	    user.setUsername("karthik");
+		blog.setBlogid(001);
+		blog.setPostby(user);
+		blog.setBlogname("ishaanblog");
+		blog.setBlogcontent("art blog");
+		blog.setCreatedate(new Date());
+		blog.setStatus("A");
+		blog.setLikes(1);
 		assertEquals("insert Successfully", true, blogDao.addBlog(blog));
 	}
-	@Test
+	/*	@Test
 	public void updateBlogTest() {
 	    blog.setBlogid(3);
 		blog.setBlogname("anbu");
@@ -56,5 +60,5 @@ public class BlogDaoTest {
 		blog.setCreatedate(date);
 		blog.setStatus("available");
 		assertEquals("insert Successfully", true, blogDao.deleteBlog(blog));
-	}
+	}*/
 }

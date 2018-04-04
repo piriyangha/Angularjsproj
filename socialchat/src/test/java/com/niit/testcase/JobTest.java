@@ -27,7 +27,7 @@ public class JobTest {
 	@Test
 	public void addJobTestCase() {
 		job.setJobname("java developer");
-		job.setJobdescription("java requirements");
+		//job.setJobdescription("java requirements");
 		assertEquals("insert Successfully", true, jobDao.addJob(job));
 	}
 

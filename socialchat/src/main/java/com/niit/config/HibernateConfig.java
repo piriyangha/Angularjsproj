@@ -35,7 +35,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 			private Properties getHibernateProperties() {
 				Properties properties = new Properties();
-				properties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
+				properties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 				properties.put("hibernate.hbm2ddl.auto", "update");
 				properties.put("hibernate.show_sql", "true");
 				properties.put("hibernate.format_sql", "true");

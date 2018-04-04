@@ -1,5 +1,7 @@
 package com.niit.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -42,6 +44,18 @@ SessionFactory sessionFactory;
 			}catch(Exception e) {
 				return false;
 			}	
+	}
+
+	@Override
+	public User getUser(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> listUser(String username) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

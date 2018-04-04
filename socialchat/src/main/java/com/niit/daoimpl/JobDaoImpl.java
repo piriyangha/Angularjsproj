@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.dao.JobDao;
 import com.niit.model.Job;
+import com.niit.model.JobApply;
 @Repository("jobDao")
 @Transactional
 public class JobDaoImpl implements JobDao{
@@ -51,19 +52,19 @@ public class JobDaoImpl implements JobDao{
 	}
 
 	@Override
-	public boolean approveJob(Job job) {
+	public List<Job> listAllJobs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean applyJob(JobApply applyJob) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean rejectJob(Job job) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public List<Job> listJob(String username) {
+	public List<JobApply> getAllAppliedJobDetails() {
 		// TODO Auto-generated method stub
 		return null;
 	}

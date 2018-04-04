@@ -34,14 +34,14 @@ public class ForumTest {
 	}
 @Test
 	public void updateForumTest() {
-		forum.setFid(7);
+		forum.setForumid(7);
 		//forum.setFname("stackoverflow");
 		forum.setFcontent("java discussion");
 		assertEquals("insert Successfully", true, forumDao.updateForum(forum));
 	}
 @Test
 	public void deleteForumTest() {
-		forum.setFid(7);
+		forum.setForumid(7);
 		/*forum.setFname("stackoverflow");
 		forum.setFcontent("java doubts");*/
 		assertEquals("insert Successfully", true, forumDao.deleteForum(forum));

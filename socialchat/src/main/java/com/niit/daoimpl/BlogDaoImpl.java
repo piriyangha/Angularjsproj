@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.dao.BlogDao;
 import com.niit.model.Blog;
+import com.niit.model.BlogComment;
 @Repository("blogDao")
 @Transactional
 public class BlogDaoImpl implements BlogDao {
@@ -58,7 +59,7 @@ SessionFactory sessionFactory;
 	public boolean approveBlog(Blog blog) {
 		
 		try {
-			blog.setStatus("NA");
+			blog.setStatus("A");
 			sessionFactory.getCurrentSession().update(blog);
 			return true;
 			}catch(Exception e) {
@@ -68,12 +69,75 @@ SessionFactory sessionFactory;
 
 	public boolean rejectBlog(Blog blog) {
 		
-		return false;
+		try {
+			blog.setStatus("NA");
+			sessionFactory.getCurrentSession().update(blog);
+			return true;
+			}catch(Exception e) {
+				return false;
+			}	
 	}
 
 	public List<Blog> listBlog(String username) {
-		
-		return null;
+		try {
+		return sessionFactory.getCurrentSession().createQuery("From Blog where username=:username",Blog.class).list();
+		}
+		catch(Exception e) {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean incrementLike(Blog blog) {
+		 try{
+			 int likes=blog.getLikes();
+			 likes++;
+			 blog.setLikes(likes);
+			 sessionFactory.getCurrentSession().update(blog);
+			 return true;
+		 }catch(Exception e)
+		 {
+			 return false;
+		 }
+	}
+
+	@Override
+	public boolean addBlogComment(BlogComment blogComment) {
+		try {
+			sessionFactory.getCurrentSession().saveOrUpdate(blogComment);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean deleteBlogComment(BlogComment blogComment) {
+		try {
+			sessionFactory.getCurrentSession().delete(blogComment);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	@Override
+	public BlogComment getBlogComment(int commentId) {
+		try {
+		return sessionFactory.getCurrentSession().get(BlogComment.class,commentId);	
+		}catch(Exception e) {
+			return null;
+		}
+	}
+
+	@Override
+	public List<BlogComment> listBlogComments(int blogId) {
+		try {
+			return sessionFactory.getCurrentSession().createQuery("From BlogComment where blogid=:blogId",BlogComment.class).list();
+			}
+			catch(Exception e) {
+				return null;
+			}
 	}
 	
 
