@@ -3,7 +3,7 @@
  */
 myApp.controller("UserController",function($scope,$http,$location,$rootScope,$cookieStore)
 {
-	$scope.user={loginname:'',password:'',role:'',username:'',emailId:'',mobileNo:'',address:'',isOnline:''};
+	$scope.user={loginname:'',password:'',role:'',username:'',email:'',phone:'',address:'',isonline:'',gender:''};
 	$scope.userProfile={loginname:'',image:''};
 	$rootScope.login=function()
 	{

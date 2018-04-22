@@ -2,6 +2,7 @@ package com.niit.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,19 +15,25 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name="users")
 public class User {
-	 @Id
+	
+	
+
+	@Id
 	 @GeneratedValue(strategy=GenerationType.AUTO)	
 	private int userid;
+	// private String loginname;
+	private String firstname;
+	private String lastname;
 	private String username;
 	private String password;
+	@Column(unique=true,nullable=false)
 	private String email;
 	private String phone;
 	private String address;
-	//@Temporal(TemporalType.DATE)
-	private Date birthDate;
+
 	private String role;
-	private String status;
-	private boolean enabled;
+	private Boolean isonline;
+	
 	private char gender;
 
 	public int getUserid() {
@@ -66,30 +73,14 @@ public class User {
 		this.address = address;
 	}
 	
-	public Date getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
+	
 	public String getRole() {
 		return role;
 	}
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public boolean isEnabled() {
-		return enabled;
-	}
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+	
 	public char getGender() {
 		return gender;
 	}
@@ -97,21 +88,23 @@ public class User {
 		this.gender = gender;
 	}
 	
-
-
+	public String getFirstname() {
+		return firstname;
+	}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public Boolean getIsonline() {
+		return isonline;
+	}
+	public void setIsonline(Boolean isonline) {
+		this.isonline = isonline;
+	}
 	
-   
-
-
-
-	
-	
-
-	
-	
-	
-	
-	
-	
-
 }

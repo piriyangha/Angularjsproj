@@ -36,11 +36,11 @@ public class UserTestCase {
 		user.setUsername("karthik");
 		user.setPhone("0065456203");
 		user.setRole("ROLE_USER");
-		user.setStatus("online");
+		user.setIsonline(true);
 		user.setEmail("karthikponniah@gmail.com");
 		user.setAddress("singapore");
 		user.setPassword("abc");
-		assertEquals("insert Successfully", true, userDao.addUser(user));
+		assertEquals("insert Successfully", true, userDao.registerUser(user));
 	}
 	}
 
